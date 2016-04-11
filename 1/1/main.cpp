@@ -26,8 +26,8 @@ int main(int argc, const char * argv[]) {
             scanf("%d", &A[i]);
         }
     
-        int l = 1, r = min(W, H), S = 0;
-        while (l < r) {
+        int l = 1, r = min(W, H) + 1, S = 0;
+        while (r - l > 1) {
             S = (l + r + 1) / 2;
             int curpages = 0;
             int wcharnum = W / S;
@@ -40,7 +40,7 @@ int main(int argc, const char * argv[]) {
             if (curpages <= P) {
                 l = S;
             } else {
-                r = S - 1;
+                r = S;
             }
         }
         printf("%d\n", l);
